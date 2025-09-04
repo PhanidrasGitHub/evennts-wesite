@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import FrontScreen from "../assets/FrontScreen.svg";
 import Navbar from "../components/Navbar";
 import { LuMoveRight } from "react-icons/lu";
 import RecommenedShow from "../components/RecommenedShow";
@@ -9,9 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const token = JSON.parse(localStorage.getItem("jwtToken"));
   const navigate = useNavigate();
-  if (token === null) {
-    navigate("/login");
-  }
+  
   const [recommenedEventsList, setrecommendedEventList] = useState([]);
   const [isloading, setisLoading] = useState(true);
   const [upcomingEventslist, setUpcomingList] = useState([]);
@@ -46,7 +44,13 @@ const Home = () => {
   }, [token, navigate]);
 
   return (
-    <div className="main-container">
+    <div className="main-container"  style={{
+    backgroundImage: `url(${FrontScreen})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100vh'
+  }}>
       <Navbar />
       <div className="main">
         <div className="main-text">

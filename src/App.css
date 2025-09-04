@@ -228,9 +228,7 @@
 
 .main {
   height: 100vh;
-  background-image: url("/src/assets/Front\ screen.svg"); /* If in src/assets */
-  background-position: center;
-  background-size: cover;
+  margin-bottom: 20px;
   padding-top: 50px;
   display: flex;
   flex-direction: column;
