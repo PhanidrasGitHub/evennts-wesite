@@ -21,7 +21,7 @@ const RecommenedShow = (props) => {
   const directImgUrl = getDirectImageUrl(imgUrl);
   const formattedDate = dateconversion(date);
   const distance = parseInt(distanceKm / 1000);
-  console.log(directImgUrl);
+  //console.log(directImgUrl);
   return (
     <li
       className="recomented-shows-item"

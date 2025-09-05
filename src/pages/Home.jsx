@@ -13,7 +13,8 @@ const Home = () => {
   const [recommenedEventsList, setrecommendedEventList] = useState([]);
   const [isloading, setisLoading] = useState(true);
   const [upcomingEventslist, setUpcomingList] = useState([]);
-  const code = import.meta.env.VITE_AZURE_KEY;
+  const API_URL = import.meta.env.VITE_API_URL;
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
 
   useEffect(() => {
@@ -23,21 +24,15 @@ const Home = () => {
 
     const getdata = async () => {
       try {
-        const res = await fetch(
-          `https://gg-backend-assignment.azurewebsites.net/api/Events?code=${code}&type=reco`
-        );
+        const res = await fetch(`${API_URL}?code=${API_KEY}&type=reco`);
         const data = await res.json();
-        const upcomingrep = await fetch(
-          `https://gg-backend-assignment.azurewebsites.net/api/Events?code=${code}&page=1&type=upcoming`
-        );
+        const upcomingrep = await fetch(`${API_URL}?code=${API_KEY}&page=1&type=upcoming`);
         const upcomingdata = await upcomingrep.json();
-        //console.log(data.events);
         setrecommendedEventList(data.events);
-        //console.log(upcomingdata.events);
         setUpcomingList(upcomingdata.events);
         setisLoading(false);
       } catch (error) {
-        //console.log(error);
+        console.log(error);
       }
     };
     getdata();

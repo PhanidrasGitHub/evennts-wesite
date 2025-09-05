@@ -13,7 +13,8 @@ const UpcomingEvents = (props) => {
   const { cityName, distanceKm, eventName, weather, imgUrl } = listitemDetails;
   const directImgUrl = getDirectImageUrl(imgUrl);
   const distance = parseInt(distanceKm / 1000);
-  console.log(directImgUrl);
+  console.log(directImgUrl)
+  
   return (
     <li>
       <img src={directImgUrl} alt={eventName} />
